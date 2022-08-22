@@ -13,9 +13,9 @@ export class Pagina2Page implements OnInit {
     this.activeroute.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
         this.dato = this.router.getCurrentNavigation().extras.state.user;
-        console.log(this.dato)
+        console.log(this.dato);
       }
-});
+  });
 }
 
 
