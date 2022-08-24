@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +9,7 @@ import { Router, NavigationExtras } from '@angular/router';
 })
 export class HomePage {
 
-  constructor(private router:Router) {
+  constructor(private router: Router, private menu: MenuController) {
   }
 
   navegar(){
@@ -16,5 +17,19 @@ export class HomePage {
       state: {user: "matias"}
       };
       this.router.navigate(['/pagina2'],navigationExtras);
+  }
+
+  openFirst() {
+    this.menu.enable(true, 'first');
+    this.menu.open('first');
+  }
+
+  openEnd() {
+    this.menu.open('end');
+  }
+
+  openCustom() {
+    this.menu.enable(true, 'custom');
+    this.menu.open('custom');
   }
 }
