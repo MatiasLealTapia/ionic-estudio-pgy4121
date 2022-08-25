@@ -7,7 +7,6 @@
   <ion-content>
     <ion-list>
       <ion-item [routerLink]="['/login']"><ion-icon name="person-circle-outline"></ion-icon>Login</ion-item>
-      <ion-item [routerLink]="['/pagina2']">Pagina 2</ion-item>
     </ion-list>
   </ion-content>
 </ion-menu>
@@ -25,8 +24,6 @@
 
 <ion-content [fullscreen]="true">
 
+  <ion-button expand="block" shape="round" color="dark" [routerLink]="['/login']">Login</ion-button>
 
-
-  <ion-button shape="round" color="dark" [routerLink]="['/pagina2']">Ir a P&aacute;gina 2</ion-button>
-  <ion-button shape="round" color="dark" (click)="navegar()">Ir a P&aacute;gina 2 (params)</ion-button>
 </ion-content>

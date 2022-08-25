@@ -1,12 +1,57 @@
-<ion-header>
+<ion-header collapse="fade">
   <ion-toolbar>
-    <ion-title>
-      SkeletonAPP (Prueba Enrutamiento)
+    <ion-button [routerLink]="['/']"><ion-icon name="chevron-back-outline"></ion-icon></ion-button>
+    <ion-title text-center>
+      SkeletonAPP
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-button shape="round" color="dark" [routerLink]="['/']">Volver a Home</ion-button>
-  <ion-input>{{dato}}</ion-input>
+  <p class="ion-padding">
+    <ion-text color="primary">
+      <h4>Bienvenido <b>{{dato.usrnme}}</b></h4>
+    </ion-text>
+  </p>
+  <p class="ion-text-center">
+    <ion-text>
+      <h1>Informaci&oacute;n adicional</h1>
+    </ion-text>
+  </p>
+
+  <form [formGroup]="infoAdicional" (ngSubmit)="guardarDatos()">
+    <ion-item>
+      <ion-label position="fixed">Nombre:</ion-label>
+      <ion-input [(ngModel)]="cbgNombre" formControlName="nombre" type="text" id="nombre" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Apellido:</ion-label>
+      <ion-input [(ngModel)]="cbgApellido" formControlName="apellido" type="text" id="apellido" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Nivel de Educacion:</ion-label>
+      <ion-list>
+        <ion-item>
+          <ion-select formControlName="nivEducacion" id="nivEducacion" placeholder="Seleccione">
+            <ion-select-option value="basica">Basica</ion-select-option>
+            <ion-select-option value="media">Media</ion-select-option>
+            <ion-select-option value="superior">Superior</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Fecha de nacimiento:</ion-label>
+      <ion-input formControlName="fechaNac" type="date" id="fechaNac"></ion-input>
+    </ion-item>
+    <ion-row>
+      <ion-col>
+        <ion-button expand="block" color="primary" type="submit" (click)="presentAlert()">Enviar</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button expand="block" color="primary" (click)="limpiarDatos()">Limpiar</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+
 </ion-content>
