@@ -32,4 +32,9 @@ export class HomePage {
     this.menu.enable(true, 'custom');
     this.menu.open('custom');
   }
+
+  ionViewWillLeave() {
+    this.menu.close('custom');
+  }
+
 }

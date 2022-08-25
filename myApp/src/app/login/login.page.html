@@ -1,6 +1,7 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>login</ion-title>
+    <ion-button [routerLink]="['/']"><ion-icon name="chevron-back-outline"></ion-icon></ion-button>
+    <ion-title text-center>Login</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -16,11 +17,14 @@
   <br>
   <ion-item>
     <ion-label position="fixed">Username</ion-label>
-    <ion-input type="text"></ion-input>
+    <ion-input type="text" id="username"></ion-input>
   </ion-item>
   <ion-item>
     <ion-label position="fixed">Password</ion-label>
-    <ion-input type="password"></ion-input>
+    <ion-input #passwordEyeRegister [type]="passwordTypeInput" clearOnEdit="false" maxlength="4" id="password"></ion-input>
+    <button  item-end  class="btn_eye_icon"  (click)="togglePasswordMode()">
+      <ion-icon  [name]="(passwordTypeInput === 'text')?'eye-off':'eye'"></ion-icon>
+    </button>
   </ion-item>
   <ion-button expand="block" color="primary">Login</ion-button>
 </ion-content>
